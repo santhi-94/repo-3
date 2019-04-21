@@ -10,7 +10,7 @@ pipeline{
      stage (github) {
 	  steps {
 	 git (
-	     branch: 'master'
+	     branch: 'master' ,
 	     url: 'https://github.com/santhi-94/repo-3.git'
 	     )
 	        }
