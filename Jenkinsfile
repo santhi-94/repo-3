@@ -7,13 +7,15 @@ pipeline{
 	jdk 'java'
    }  
   stages{
-     stage (github code) {
+     stage (github) {
 	  steps {
-	 git branch: 'master'
+	 git (
+	     branch: 'master'
 	     url: 'https://github.com/santhi-94/repo-3.git'
+	     )
 	        }
 	 }
-     stage (maven clean compile) {
+     stage (compile) {
 	    steps{
 		 sh  'mvn clean compile' 
 		     }
