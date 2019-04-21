@@ -1,0 +1,28 @@
+pipeline{
+  agent {
+     label 'master' 
+  }
+  tools {
+    maven 'apache-maven'
+	jdk 'java'
+   }  
+  stages{
+     stage (github code) {
+	  steps {
+	 git branch: 'master'
+	     url: 'https://github.com/santhi-94/repo-3.git'
+	        }
+	 }
+     stage (maven clean compile) {
+	    steps{
+		 sh  'mvn clean compile' 
+		     }
+	 }
+	 stage (test) {
+	  steps{
+	   sh 'mvn test'
+	        }
+	 }
+	 
+  }
+}
